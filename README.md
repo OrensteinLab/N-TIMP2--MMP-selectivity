@@ -58,14 +58,16 @@ Before you proceed with the setup, make sure to have Python and Anaconda install
 ### 1. MMP-9 model:
 The script `MMP9_prediction.py` takes the `MMP9_model.h5` located in the code folder. To generate N-TIM2 list of variants with high affinity to MMP9.
 
-### 2.	Pre-processing Script (Not Needed for validation):
+### 2.	Pre-processing Script (Optional):
 The script variants_count.py processes FASTA files to count valid variants.
 A valid variant must:  
 * Align with the N-TIMP2 wild-type amino acid sequence.
 * Contain mutations only at the relevant positions.
  
 The script merges data from four repetitions of each library.
-However, this script is not required for validation because the summary files (All_mutations_X.csv, where X represents the library subpopulation) are already provided in the data folder.
+
+Important Note: This script is for users who wish to train a model based on their own data. To work with our data and prdeict N-TIMP2 variants, you dont need to run this script. Becasue the output files of this script (All_mutations_X.csv, where X represents the library subpopulation) are already provided in the data folder.
+
 
 ### 3.	Train models script:
 Run `train_save_model.py`. You will be prompted to choose an action:
@@ -77,13 +79,13 @@ Output:
 * If Option 1 is selected, prediction files will be generated at the end of execution.
 
 ### 4.	Get predictions:
-After training the model by running: `python train_save_model.py` using option number 1, you can now generate predictions.
+After training the model by running: `python train_save_model.py` using option number 2, you can now generate predictions.
 
 There are three available scripts for making predictions.
 Each script will prompt you to enter the model date in YYYYMMDD format.
 
-#### 4.1	Predicting All Single Mutations:
-The script `predict_all_library.py` generates predictions for all possible single mutations.
+#### 4.1	Predicting All possibole Mutations:
+The script `predict_all_library.py` generates predictions for all possible mutations (library size of 20^7).
 
 #### 4.2	User-Specified Variant Predictions:
 The script `predict_user_variants.py` predicts the log2 ER of any variant.
@@ -93,7 +95,8 @@ Enter the sequnce in FASTA format:
 >variant_ID
 CSCSPVHPQQAFCNADVVIRAKAVSEKEVDSGNDIYGNPIKRIQYEIKQIKMFKGPEKDIEFIYTAPSSAVCGVSLDVGGKKEYLIAGKAEGDGKMHIT
 ```
-The script outputs a CSV file {current_date}_df_sum.csv, summarizing the percentage of variants above the benchmark.
+Output:
+* The script creates a csv file '{current data}_user_predictions', with the Predicted_log2_ER of each variant in the MMP-1 and MMP-3 models.
 
 #### 4.3	Variant quantification:
 The script `calcaulte_library_above_variants.py` calculates how many variants from the entire library have a higher ER than the five benchmark variants presented in the paper:
@@ -103,7 +106,7 @@ The script `calcaulte_library_above_variants.py` calculates how many variants fr
 
 Output:
 * The data is shown as a percentage of the entire library.
-* The script creates a csv files '{current data}_df_sum'.
+* For MMP-1 and MMP-3, the script creates a csv files '{current data}_df_sum', summarizing the percentage of variants above the benchmark.
    
 During execution, you will be prompted to enter the date of the prediction folder in YYYYMMDD format.
 
