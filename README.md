@@ -24,7 +24,7 @@ Before you proceed with the setup, make sure to have Python and Anaconda install
 
 
 1. **Download the Code Repository:**
-   - Visit the GitHub repository: [https://github.com/dorgoz/N_TIMP2_selective_mut/blob/main](https://github.com/dorgoz/N_TIMP2_selective_mut/blob/main).
+   - Visit the GitHub repository: [https://github.com/OrensteinLab/N-TIMP2--MMP-selectivity](https://github.com/OrensteinLab/N-TIMP2--MMP-selectivity)
    - Download the contents of the "Code" folder.
 
 2. **Inside the "Code" Folder, Add Your Raw Data in folder named "Raw_data":**
