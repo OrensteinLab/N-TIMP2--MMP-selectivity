@@ -40,10 +40,10 @@ Before you proceed with the setup, make sure to have Python and Anaconda install
 3. **Create a Virtual Conda Environment:**
    - Open a command prompt.
    - Navigate to the directory where you downloaded the "Code" repository.
-   - Run the following command to create a virtual conda environment named "my_env" with Python 2.7.5 and the required modules:
+   - Run the following command to create a virtual conda environment named "my_env" with Python 3.8.3 and the required modules:
      
      ```bash
-     conda create --name my_env --file requirements.txt python=2.7.5
+     conda create --name my_env python=3.8.3 --file requirements.txt && conda activate my_env && pip install tensorflow==2.11.0 
      ```
 
 4. **Activate the New Environment and Run the Script:**
@@ -55,7 +55,7 @@ Before you proceed with the setup, make sure to have Python and Anaconda install
 
 
 # Usage
-### 1. MMP-9 model:
+### 1. MMP9 model:
 The script `MMP9_prediction.py` takes the `MMP9_model.h5` located in the code folder. To generate N-TIM2 list of variants with high affinity to MMP9.
 
 ### 2.	Pre-processing Script (Optional):
@@ -96,7 +96,7 @@ Enter the sequnce in FASTA format:
 CSCSPVHPQQAFCNADVVIRAKAVSEKEVDSGNDIYGNPIKRIQYEIKQIKMFKGPEKDIEFIYTAPSSAVCGVSLDVGGKKEYLIAGKAEGDGKMHIT
 ```
 Output:
-* The script creates a csv file '{current data}_user_predictions', with the Predicted_log2_ER of each variant in the MMP-1 and MMP-3 models.
+* The script creates a csv file '{current data}_user_predictions', with the Predicted_log2_ER of each variant in the MMP1 and MMP3 models.
 
 #### 4.3	Variant quantification:
 The script `calcaulte_library_above_variants.py` calculates how many variants from the entire library have a higher ER than the five benchmark variants presented in the paper:
@@ -106,7 +106,7 @@ The script `calcaulte_library_above_variants.py` calculates how many variants fr
 
 Output:
 * The data is shown as a percentage of the entire library.
-* For MMP-1 and MMP-3, the script creates a csv files '{current data}_df_sum', summarizing the percentage of variants above the benchmark.
+* For MMP1 and MMP3, the script creates a csv files '{current data}_df_sum', summarizing the percentage of variants above the benchmark.
    
 During execution, you will be prompted to enter the date of the prediction folder in YYYYMMDD format.
 
