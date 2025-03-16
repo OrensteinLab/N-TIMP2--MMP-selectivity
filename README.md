@@ -43,13 +43,14 @@ Before you proceed with the setup, make sure to have Python and Anaconda install
    - Run the following command to create a virtual conda environment named "my_env" with Python 3.8.3 and the required modules:
      
      ```bash
-     conda create --name my_env python=3.8.3 --file requirements.txt && conda activate my_env && pip install tensorflow==2.11.0 
+     conda create --name my_env python=3.8.3 --file Requirements.txt 
      ```
 
 4. **Activate the New Environment and Run the Script:**
    - Activate the environment using the following command:
      ```bash
      conda activate my_env
+     pip install tensorflow==2.11.0
      ```
    - Run the scripts according to the provided usage instructions.
 
